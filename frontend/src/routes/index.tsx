@@ -57,7 +57,7 @@ function Home() {
 	});
 
 	return (
-		<main className="flex flex-col antialiased scroll-smooth px-5 md:px-40 lg:px-60 xl:px-80 py-10 md:py-20">
+		<main className="flex flex-col antialiased scroll-smooth px-5 md:px-[10rem] lg:px-[20rem] xl:px-[30rem] py-10 md:py-20">
 			<section className="flex flex-col gap-4">
 				<div className="flex flex-col gap-4">
 					<div className="flex justify-end space-x-2">
