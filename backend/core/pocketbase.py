@@ -18,6 +18,8 @@ class Pocketbase():
     self.email = os.getenv("POCKETBASE_EMAIL") or "admin@example.com"
     self.password = os.getenv("POCKETBASE_PASSWORD") or "0123456789"
     self.token = self.get_login_token()
+    self.requests_counter = 0
+
     self.initialize_database()
 
   def get_login_token(self):
@@ -29,6 +31,11 @@ class Pocketbase():
     return token
 
   def upload_sensor_data(self, data: SensorData):
+    self.requests_counter += 1
+    if self.requests_counter > 100:
+      self.requests_counter = 0
+      self.token = self.get_login_token()
+
     print(f"[Pocketbase]: Uploading sensor data: {data}")
     url = f"{self.url}/api/collections/data/records"
     response = requests.post(url, json={
