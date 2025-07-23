@@ -26,6 +26,7 @@ export const Route = createRootRoute({
 			}),
 		],
 		links: [
+			{ rel: "preload", as: "style", href: appCss },
 			{ rel: "stylesheet", href: appCss },
 			{
 				rel: "apple-touch-icon",
@@ -47,12 +48,7 @@ export const Route = createRootRoute({
 			{ rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
 			{ rel: "icon", href: "/favicon.ico" },
 		],
-		scripts: [
-			{
-				src: "/customScript.js",
-				type: "text/javascript",
-			},
-		],
+		scripts: [],
 	}),
 	errorComponent: DefaultCatchBoundary,
 	notFoundComponent: () => <NotFound />,
