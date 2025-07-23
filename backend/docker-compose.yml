@@ -2,6 +2,7 @@ services:
   fastapi:
     build: .
     container_name: home-air-monitor-api
+    image: home-air-monitor-api:latest
     env_file:
       - .env
     ports:

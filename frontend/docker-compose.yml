@@ -1,6 +1,7 @@
 services:
   vite:
-    container_name: home-air-monitor_frontend
+    container_name: home-air-monitor-frontend
+    image: home-air-monitor-frontend:latest
     build:
       context: .
       dockerfile: Dockerfile
