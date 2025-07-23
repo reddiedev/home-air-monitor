@@ -95,7 +95,7 @@ export default function TemperatureHumidityChart({
 			(now.getTime() - latestTimestamp.getTime()) / (1000 * 60),
 		);
 
-		if (diffInMinutes < 1) return "just now";
+		if (diffInMinutes < 1) return "Just now";
 		if (diffInMinutes === 1) return "1 minute ago";
 		if (diffInMinutes < 60) return `${diffInMinutes} minutes ago`;
 
@@ -107,13 +107,13 @@ export default function TemperatureHumidityChart({
 	return (
 		<Card className="py-0">
 			<CardHeader className="flex flex-col items-stretch border-b !p-0 sm:flex-row">
-				<div className="flex flex-1 flex-col justify-center gap-1 px-6 pb-3 sm:pb-0">
+				<div className="flex flex-1 flex-col justify-center gap-1 px-6 pb-3 pt-3 sm:pb-0">
 					<CardTitle>Bedroom Monitor</CardTitle>
 					<CardDescription>
 						Real-time temperature and humidity readings
 						{timeDifference && (
 							<span className="block text-xs text-muted-foreground mt-1">
-								As of {timeDifference}
+								{timeDifference}
 							</span>
 						)}
 					</CardDescription>
@@ -153,7 +153,7 @@ export default function TemperatureHumidityChart({
 						accessibilityLayer
 						data={data}
 						margin={{
-							left: 12,
+							left: 0,
 							right: 12,
 						}}
 					>
@@ -172,7 +172,7 @@ export default function TemperatureHumidityChart({
 								});
 							}}
 						/>
-						<YAxis type="number" scale="linear" domain={yAxisDomain} />
+						<YAxis type="number" width={45} scale="linear" domain={yAxisDomain} />
 						<ChartTooltip
 							content={
 								<ChartTooltipContent

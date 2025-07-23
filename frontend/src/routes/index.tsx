@@ -7,6 +7,8 @@ import ChartTimeToggle, {
 } from "~/components/chart-time-toggle";
 
 import { getRecords } from "~/lib/api";
+import { RefreshCcw, RefreshCcwDotIcon, RefreshCcwIcon } from "lucide-react";
+import { Button } from "~/components/ui/button";
 
 export const Route = createFileRoute("/")({
 	component: Home,
@@ -58,11 +60,18 @@ function Home() {
 		<main className="flex flex-col antialiased scroll-smooth px-5 md:px-40 lg:px-60 xl:px-80 py-10 md:py-20">
 			<section className="flex flex-col gap-4">
 				<div className="flex flex-col gap-4">
-					<div className="flex justify-end">
+					<div className="flex justify-end space-x-2">
 						<ChartTimeToggle
 							selectedPeriod={selectedPeriod}
 							setSelectedPeriod={setSelectedPeriod}
 						/>
+						<Button variant="outline" size="icon" onClick={() => {
+							queryClient.invalidateQueries({
+								queryKey: ["records", selectedPeriod],
+							});
+						}}>
+							<RefreshCcwIcon className="w-4 h-4" />
+						</Button>
 					</div>
 					<TemperatureHumidityChart data={query.data ?? []} />
 				</div>
