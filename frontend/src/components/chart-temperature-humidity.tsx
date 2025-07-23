@@ -15,6 +15,7 @@ import {
 	ChartTooltip,
 	ChartTooltipContent,
 } from "~/components/ui/chart";
+import { Skeleton } from "~/components/ui/skeleton";
 
 type DataRecord = {
 	timestamp: string;
@@ -132,15 +133,29 @@ export default function TemperatureHumidityChart({
 								<span className="text-muted-foreground text-xs">
 									{chartConfig[chart].label}
 								</span>
-								<span className="text-lg leading-none font-bold sm:text-3xl">
-									{formatValue(stats[key].avg, key)}
-								</span>
-								<span className="text-muted-foreground text-xs">
-									{formatValue(stats[key].min, key)} -{" "}
-									{formatValue(stats[key].max, key)}
-								</span>
+
+								{data.length > 0 && (
+
+									<span className="text-lg leading-none font-bold sm:text-3xl">
+										{formatValue(stats[key].avg, key)}
+									</span>
+								)}
+
+								{data.length == 0 && <Skeleton className="w-full h-4" />
+								}
+
+								{data.length > 0 && (
+
+									<span className="text-muted-foreground text-xs">
+										{formatValue(stats[key].min, key)} -{" "}
+										{formatValue(stats[key].max, key)}
+									</span>
+								)}
+								{data.length == 0 && <Skeleton className="w-full h-4" />}
 							</button>
-						);
+
+
+						)
 					})}
 				</div>
 			</CardHeader>
@@ -188,7 +203,7 @@ export default function TemperatureHumidityChart({
 									formatter={(value, name) => [
 										`${Number(value).toFixed(1)}${getUnit(name as "temperature" | "humidity")}`,
 										chartConfig[name as keyof typeof chartConfig]?.label ||
-											name,
+										name,
 									]}
 								/>
 							}
