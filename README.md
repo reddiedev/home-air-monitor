@@ -1,41 +1,57 @@
 # 🥓 Home Air Monitor (HAM)
 
-HAM is a DIY indoor air quality monitoring system powered by an ESP8266 microcontroller, helping me track the temperature and humidity of my bedroom
+**HAM** is a DIY indoor air quality monitoring system powered by an ESP8266 microcontroller. It helps you track the temperature and humidity of your bedroom—keeping your space comfy and healthy!
 
 ![Dashboard](/public/dashboard.png)
 
-## Objectives
-- [x] Provide real-time temperature and humidity data
-- [x] Local self-hosted compute and storage deployment
-- [x] Low-cost and easy integration with systems
-- [x] Practical applications of technology I know/ want to learn
-- [ ] 3d-printed enclosure
-- [ ] integration of CO2 sensor
+---
 
-## Tech Stack
+## 🎯 Objectives
+
+- ✅ Real-time temperature & humidity data
+- ✅ Local, self-hosted compute & storage
+- ✅ Low-cost and easy integration with other systems
+- ✅ Hands-on learning with tech I know (and want to learn!)
+- ⏳ 3D-printed enclosure *(coming soon!)*
+- ⏳ CO₂ sensor integration *(coming soon!)*
+
+---
+
+## 🛠️ Tech Stack
+
 ![Diagram](/public/diagram.png)
-- ESP8266-based IOT device 
-- REST API via FastAPI
-- Sqlite-based Database via Pocketbase
-- Frontend using React.JS via Vite/Tanstack Start
-- Deployment via Docker
 
-## Getting Started
+- **ESP8266** IoT device  
+- **REST API** with FastAPI  
+- **Pocketbase** (SQLite-based database)  
+- **Frontend:** React.js (Vite + TanStack Start)  
+- **Deployment:** Docker
 
-### Requirements
-Your IOT device must have:
-- ESP8266-based Microcontroller ie. NodeMCU v3
-- SHT30-D Temperature & Humidity Sensor
-- Breadboard and Jumper Wires
-- Optional, DHT-22 Temperature & Humidity Sensor
+---
 
-Your server must have:
-- Python 3.12^
+## 🚀 Getting Started
+
+### 🧰 Hardware Requirements
+
+**IoT Device:**
+- ESP8266-based microcontroller (e.g., NodeMCU v3)
+- SHT30-D temperature & humidity sensor
+- Breadboard and jumper wires
+- *(Optional)* DHT-22 temperature & humidity sensor
+
+**Server:**
+- Python 3.12+
 - Node.js v20 LTS
-- Running Pocketbase instance via [Docker](https://pocketbase.io/docs/going-to-production/#using-docker)
-> In my case, I used a Raspberry Pi 4b 4GB model to run the containers
+- [Pocketbase](https://pocketbase.io/docs/going-to-production/#using-docker) (via Docker)
 
-### Installation & Testing
+> 💡 *Tip: I use a Raspberry Pi 4B (4GB) to run the containers!*
+
+---
+
+### 🏗️ Installation & Testing
+
+Clone the repo and set up the backend:
+
 ```bash
 git clone https://github.com/reddiedev/home-air-monitor.git
 cd home-air-monitor
@@ -43,19 +59,46 @@ cd home-air-monitor
 cd backend
 pip install -r requirements.txt
 fastapi dev main
+```
 
+Set up the frontend:
+
+```bash
 cd frontend
 pnpm install --frozen-lockfile
 pnpm run dev
 ```
-Using [Arduino IDE](https://www.arduino.cc/en/software), flash the `device/Main.ino` source code into the ESP8266 development board
 
-### Usage
+Flash the ESP8266 with the device code using the [Arduino IDE](https://www.arduino.cc/en/software):
+
+- Open `device/Main.ino` in Arduino IDE
+- Connect your ESP8266 and upload the code
+
+---
+
+### 🖥️ Usage
+
+Spin up everything with Docker:
 
 ```bash
-# cd backend || # cd frontend
+# From either backend or frontend directory
 docker compose up -d --build
 ```
 
-- View Dashboard at `http://localhost:3000`
-- View API at `http://localhost:8000`
+- 🌐 **Dashboard:** [http://localhost:3000](http://localhost:3000)
+- 🛠️ **API:** [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 🤝 Contributing
+
+Pull requests, issues, and suggestions are welcome!  
+Let’s make indoor air quality monitoring better together.
+
+---
+
+## 📄 License
+
+MIT — see [LICENSE](LICENSE) for details.
+
+---
