@@ -8,12 +8,14 @@
 
 ## 🎯 Objectives
 
-- ✅ Real-time temperature & humidity data
-- ✅ Local, self-hosted compute & storage
-- ✅ Low-cost and easy integration with other systems
-- ✅ Hands-on learning with tech I know (and want to learn!)
-- ⏳ 3D-printed enclosure *(coming soon!)*
-- ⏳ CO₂ sensor integration *(coming soon!)*
+- [x] Real-time temperature & humidity data
+- [x] Local, self-hosted compute & storage
+- [x] Low-cost and easy integration with other systems
+- [x] Hands-on learning with tech I know (and want to learn!)
+- [ ] CO₂ sensor integration *(coming soon!)*
+- [ ] E-ink display integration *(coming soon!)*
+- [ ] 3D-printed enclosure *(coming soon!)*
+
 
 ---
 
